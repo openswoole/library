@@ -1,10 +1,10 @@
 <?php
 /**
- * This file is part of Swoole.
+ * This file is part of Open Swoole.
  *
- * @link     https://www.swoole.com
- * @contact  team@swoole.com
- * @license  https://github.com/swoole/library/blob/master/LICENSE
+ * @link     https://www.swoole.co.uk
+ * @contact  hello@swoole.co.uk
+ * @license  https://github.com/openswoole/library/blob/master/LICENSE
  */
 
 /* @noinspection PhpComposerExtensionStubsInspection */
