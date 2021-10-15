@@ -1,23 +1,24 @@
 {
-    "name": "swoole/library",
-    "description": "Library of Swoole",
+    "name": "openswoole/library",
+    "description": "Library of Open Swoole",
     "keywords": [
         "swoole",
+        "openswoole",
         "library"
     ],
     "license": "Apache-2.0",
     "authors": [
         {
-            "name": "Swoole Team",
-            "email": "team@swoole.com"
+            "name": "Swoole Development Group",
+            "email": "hello@swoole.co.uk"
         }
     ],
     "support": {
-        "issues": "https://github.com/swoole/library"
+        "issues": "https://github.com/openswoole/library"
     },
     "require": {
         "php": ">=7.2",
-        "ext-swoole": ">=4.6"
+        "ext-openswoole": ">=4.6"
     },
     "require-dev": {
         "ext-curl": "*",

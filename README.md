@@ -1,6 +1,8 @@
-# Swoole Library
+# Open Swoole Library
 
-[![Library Status](https://github.com/swoole/library/workflows/Unit%20Tests/badge.svg)](https://github.com/swoole/library/actions)
+> This library works with Open Swoole since release version v4.7.1.
+
+[![Library Status](https://github.com/openswoole/library/workflows/Unit%20Tests/badge.svg)](https://github.com/openswoole/library/actions)
 [![License](https://img.shields.io/badge/license-apache2-blue.svg)](LICENSE)
 
 Table of Contents
@@ -30,20 +32,18 @@ Just new pull request (and we need unit tests for new features)
 
 ## Development
 
-+ [Document](https://wiki.swoole.com/#/library)
-+ [Examples](https://github.com/swoole/library/tree/master/examples)
++ [Examples](https://github.com/openswoole/library/tree/master/examples)
 
 ### Branches
 
-+ **master**: For Swoole 4.6, which supports PHP 7.2+.
-+ **4.5.x**: For Swoole 4.5, which supports PHP 7.1+.
++ **master**: For Swoole 4.7.1+, which supports PHP 7.2+.
 
 ## Dockerized Local Development
 
 First, run following command to autoload PHP classes/files (no exra Composer packages to be installed):
 
 ```bash
-docker run --rm -v "$(pwd)":/var/www -t phpswoole/swoole:latest-dev composer update -n
+docker run --rm -v "$(pwd)":/var/www -t openswoole/swoole:latest-dev composer update -n
 ```
 
 Secondly, run next command to start Docker containers:
@@ -68,7 +68,7 @@ docker exec -t $(docker ps -qf "name=app") ./vendor/bin/phpunit
 ## Examples
 
 Once you have Docker containers started (as discussed in previous section), you can use commands like following to run
-examples under folder [examples](https://github.com/swoole/library/tree/master/examples).
+examples under folder [examples](https://github.com/openswoole/library/tree/master/examples).
 
 ### Examples of Database Connection Pool
 
@@ -82,7 +82,7 @@ docker exec -t $(docker ps -qf "name=app") bash -c "php ./examples/redis/base.ph
 
 There is a fantastic example showing how to use Swoole as a proxy to serve a WordPress website using PHP-FPM. Just
 open URL _http://<span></span>127.0.0.1_ in the browser and check what you see there. Source code of the example can be
-found [here](https://github.com/swoole/library/blob/master/examples/fastcgi/proxy/wordpress.php).
+found [here](https://github.com/openswoole/library/blob/master/examples/fastcgi/proxy/wordpress.php).
 
 Here are some more examples to make FastCGI calls to PHP-FPM:
 
@@ -104,19 +104,19 @@ define('SWOOLE_USE_SHORTNAME', true); // or false (it depends on you)
 To update Composer packages (optional):
 
 ```bash
-docker run --rm -v "$(pwd)":/var/www -t phpswoole/swoole:latest-dev composer update -n
+docker run --rm -v "$(pwd)":/var/www -t openswoole/swoole:latest-dev composer update -n
 ```
 
 To check coding standard violations:
 
 ```bash
-docker run --rm -v "$(pwd)":/var/www -t phpswoole/swoole bash -c "composer cs-check"
+docker run --rm -v "$(pwd)":/var/www -t openswoole/swoole bash -c "composer cs-check"
 ```
 
 To correct coding standard violations automatically:
 
 ```bash
-docker run --rm -v "$(pwd)":/var/www -t phpswoole/swoole bash -c "composer cs-fix"
+docker run --rm -v "$(pwd)":/var/www -t openswoole/swoole bash -c "composer cs-fix"
 ```
 
 ## Third Party Libraries
@@ -129,4 +129,4 @@ You can find the licensing information of these third party libraries [here](htt
 
 ## License
 
-This project follows [the Apache 2 license](https://github.com/swoole/library/blob/master/LICENSE).
+This project follows [the Apache 2 license](https://github.com/openswoole/library/blob/master/LICENSE).
