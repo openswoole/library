@@ -125,7 +125,7 @@ Here are all the third party libraries used in this project:
 
 * The FastCGI part is derived from Composer package [lisachenko/protocol-fcgi](https://github.com/lisachenko/protocol-fcgi).
 
-You can find the licensing information of these third party libraries [here](https://github.com/swoole/library/blob/master/THIRD-PARTY-NOTICES).
+You can find the licensing information of these third party libraries [here](https://github.com/openswoole/library/blob/master/THIRD-PARTY-NOTICES).
 
 ## License
 
