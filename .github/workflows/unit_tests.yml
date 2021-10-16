@@ -22,7 +22,7 @@ jobs:
           docker-compose up -d
           docker ps -a
           docker exec -t $(docker ps -qf "name=app") bash -c "php -v"
-          docker exec -t $(docker ps -qf "name=app") bash -c "php --ri swoole"
+          docker exec -t $(docker ps -qf "name=app") bash -c "php --ri openswoole"
           docker run --rm -v "$(pwd)":/var/www -t openswoole/swoole:php${{ matrix.php }}-dev composer install -n
 
       - name: Run Unit Tests

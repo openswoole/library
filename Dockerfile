@@ -5,7 +5,7 @@ RUN \
     pecl install redis-stable   && \
     docker-php-ext-enable redis && \
     docker-php-ext-install mysqli pdo_mysql && \
-    echo "swoole.enable_library=off" >> /usr/local/etc/php/conf.d/docker-php-ext-openswoole.ini && \
+    echo "swoole.enable_library=off" >> /usr/local/etc/php/conf.d/zzz_docker-php-ext-openswoole.ini && \
     { \
         echo '[supervisord]'; \
         echo 'user = root'; \
