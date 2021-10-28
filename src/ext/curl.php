@@ -13,6 +13,7 @@ declare(strict_types=1);
 
 function swoole_curl_init(string $url = ''): Swoole\Curl\Handler
 {
+    trigger_error('Use SWOOLE_HOOK_NATIVE_CURL instead of SWOOLE_HOOK_CURL', E_USER_DEPRECATED);
     return new Swoole\Curl\Handler($url);
 }
 

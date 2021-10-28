@@ -153,6 +153,8 @@ class Constant
 
     public const OPTION_SSL_VERIFY_DEPTH = 'ssl_verify_depth';
 
+    public const OPTION_SSL_CIPHERS = 'ssl_ciphers';
+
     public const OPTION_OPEN_EOF_CHECK = 'open_eof_check';
 
     public const OPTION_OPEN_EOF_SPLIT = 'open_eof_split';
@@ -416,8 +418,6 @@ class Constant
     public const OPTION_SSL_CLIENT_CERT_FILE = 'ssl_client_cert_file';
 
     public const OPTION_SSL_PREFER_SERVER_CIPHERS = 'ssl_prefer_server_ciphers';
-
-    public const OPTION_SSL_CIPHERS = 'ssl_ciphers';
 
     public const OPTION_SSL_ECDH_CURVE = 'ssl_ecdh_curve';
 
