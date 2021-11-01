@@ -234,7 +234,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @param mixed $key
      */
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset): bool
     {
         return isset($this->array[$offset]);
     }
