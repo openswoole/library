@@ -38,6 +38,16 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         return $this->array;
     }
 
+    public function __serialize(): array
+    {
+        return $this->array;
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->array = $data;
+    }
+
     public function toArray(): array
     {
         return $this->array;
@@ -53,17 +63,11 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         return count($this->array);
     }
 
-    /**
-     * @return mixed
-     */
     public function current(): mixed
     {
         return current($this->array);
     }
 
-    /**
-     * @return mixed
-     */
     public function key(): mixed
     {
         return key($this->array);
@@ -203,7 +207,6 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     }
 
     /**
-     * @param mixed $key
      * @return null|mixed
      */
     public function offsetGet(mixed $key): mixed
@@ -223,9 +226,6 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         $this->array[$key] = $value;
     }
 
-    /**
-     * @param mixed $key
-     */
     public function offsetUnset(mixed $key): void
     {
         unset($this->array[$key]);
@@ -233,7 +233,6 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
 
     /**
      * @param mixed $key
-     * @return bool
      */
     public function offsetExists(mixed $offset): bool
     {
@@ -311,14 +310,6 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     {
         $this->array = (array) unserialize((string) $string);
         return $this;
-    }
-
-    public function __serialize(): array {
-        return $this->array;
-    }
-
-    public function __unserialize(array $data): void {
-        $this->array = $data;
     }
 
     /**
