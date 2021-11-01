@@ -68,7 +68,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         return current($this->array);
     }
 
-    public function key(): mixed
+    public function key()
     {
         return key($this->array);
     }
