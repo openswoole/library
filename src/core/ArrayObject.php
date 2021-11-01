@@ -313,13 +313,12 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         return $this;
     }
 
-    public function __serialize(): StringObject {
-        return static::detectStringType(serialize($this->array));
+    public function __serialize(): array {
+        return $this->array;
     }
 
-    public function __unserialize(string $string): self {
-        $this->array = (array) unserialize((string) $string);
-        return $this;
+    public function __unserialize(array $data): void {
+        $this->array = $data;
     }
 
     /**
