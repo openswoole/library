@@ -56,7 +56,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @return mixed
      */
-    public function current()
+    public function current(): mixed
     {
         return current($this->array);
     }
@@ -64,7 +64,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @return mixed
      */
-    public function key()
+    public function key(): mixed
     {
         return key($this->array);
     }
@@ -77,17 +77,17 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @return mixed
      */
-    public function rewind()
+    public function rewind(): void
     {
-        return reset($this->array);
+        reset($this->array);
     }
 
     /**
      * @return mixed
      */
-    public function next()
+    public function next(): void
     {
-        return next($this->array);
+        next($this->array);
     }
 
     /**
@@ -206,7 +206,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
      * @param mixed $key
      * @return null|mixed
      */
-    public function offsetGet($key)
+    public function offsetGet(mixed $key): mixed
     {
         if (!array_key_exists($key, $this->array)) {
             return null;
@@ -226,7 +226,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @param mixed $key
      */
-    public function offsetUnset($key): void
+    public function offsetUnset(mixed $key): void
     {
         unset($this->array[$key]);
     }
@@ -235,9 +235,9 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
      * @param mixed $key
      * @return bool
      */
-    public function offsetExists($key)
+    public function offsetExists(mixed $offset): bool
     {
-        return isset($this->array[$key]);
+        return isset($this->array[$offset]);
     }
 
     /**
@@ -309,6 +309,15 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
      */
     public function unserialize($string): self
     {
+        $this->array = (array) unserialize((string) $string);
+        return $this;
+    }
+
+    public function __serialize(): StringObject {
+        return static::detectStringType(serialize($this->array));
+    }
+
+    public function __unserialize(string $string): self {
         $this->array = (array) unserialize((string) $string);
         return $this;
     }
