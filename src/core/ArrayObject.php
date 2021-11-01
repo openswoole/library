@@ -68,7 +68,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         return current($this->array);
     }
 
-    public function key(): mixed
+    public function key(): mixed|int
     {
         return key($this->array);
     }
@@ -209,7 +209,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @return null|mixed
      */
-    public function offsetGet($key): mixed
+    public function offsetGet($key): mixed|int
     {
         if (!array_key_exists($key, $this->array)) {
             return null;
