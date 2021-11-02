@@ -86,7 +86,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     #[\ReturnTypeWillChange]
     public function rewind()
     {
-        reset($this->array);
+        return reset($this->array);
     }
 
     /**
@@ -95,7 +95,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     #[\ReturnTypeWillChange]
     public function next()
     {
-        next($this->array);
+        return next($this->array);
     }
 
     /**
