@@ -214,7 +214,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
      * @return null|mixed
      */
     #[\ReturnTypeWillChange]
-    public function offsetGet(mixed $key): mixed
+    public function offsetGet($key)
     {
         if (!array_key_exists($key, $this->array)) {
             return null;
@@ -240,7 +240,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
      * @param mixed $key
      */
     #[\ReturnTypeWillChange]
-    public function offsetExists(mixed $offset): bool
+    public function offsetExists($offset)
     {
         return isset($this->array[$offset]);
     }
