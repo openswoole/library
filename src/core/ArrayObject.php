@@ -211,6 +211,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     }
 
     /**
+     * @param mixed $key
      * @return null|mixed
      */
     #[\ReturnTypeWillChange]
@@ -238,6 +239,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
 
     /**
      * @param mixed $key
+     * @param mixed $offset
      */
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
