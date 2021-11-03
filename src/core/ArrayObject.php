@@ -38,6 +38,16 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         return $this->array;
     }
 
+    public function __serialize(): array
+    {
+        return $this->array;
+    }
+
+    public function __unserialize(array $data): void
+    {
+        $this->array = $data;
+    }
+
     public function toArray(): array
     {
         return $this->array;
@@ -53,17 +63,13 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         return count($this->array);
     }
 
-    /**
-     * @return mixed
-     */
+    #[\ReturnTypeWillChange]
     public function current()
     {
         return current($this->array);
     }
 
-    /**
-     * @return mixed
-     */
+    #[\ReturnTypeWillChange]
     public function key()
     {
         return key($this->array);
@@ -77,6 +83,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function rewind()
     {
         return reset($this->array);
@@ -85,6 +92,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @return mixed
      */
+    #[\ReturnTypeWillChange]
     public function next()
     {
         return next($this->array);
@@ -206,6 +214,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
      * @param mixed $key
      * @return null|mixed
      */
+    #[\ReturnTypeWillChange]
     public function offsetGet($key)
     {
         if (!array_key_exists($key, $this->array)) {
@@ -223,9 +232,6 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         $this->array[$key] = $value;
     }
 
-    /**
-     * @param mixed $key
-     */
     public function offsetUnset($key): void
     {
         unset($this->array[$key]);
@@ -233,11 +239,12 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
 
     /**
      * @param mixed $key
-     * @return bool
+     * @param mixed $offset
      */
-    public function offsetExists($key)
+    #[\ReturnTypeWillChange]
+    public function offsetExists($offset)
     {
-        return isset($this->array[$key]);
+        return isset($this->array[$offset]);
     }
 
     /**
