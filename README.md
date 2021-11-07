@@ -1,6 +1,6 @@
 # Open Swoole Library
 
-> This library works with Open Swoole since release version v4.7.1. WIP
+> This library works with Open Swoole since release version v4.7.1.
 
 [![Library Status](https://github.com/openswoole/library/workflows/Unit%20Tests/badge.svg)](https://github.com/openswoole/library/actions)
 [![License](https://img.shields.io/badge/license-apache2-blue.svg)](LICENSE)
