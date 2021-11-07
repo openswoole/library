@@ -41,6 +41,7 @@ class Barrier
 
     public static function make()
     {
+        trigger_error('Use waitGroup instead of Barrier', E_USER_DEPRECATED);
         return new static();
     }
 

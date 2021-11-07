@@ -53,6 +53,7 @@ class Server
      */
     public function __construct(string $host, int $port = 0, bool $ssl = false, bool $reuse_port = false)
     {
+        trigger_error('Use Swoole\Server instead of Swoole\Coroutine\Server', E_USER_DEPRECATED);
         $_host = swoole_string($host);
         if ($_host->contains('::')) {
             $this->type = AF_INET6;
