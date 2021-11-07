@@ -1,7 +1,5 @@
 # Open Swoole Library
 
-> This library works with Open Swoole since release version v4.7.1.
-
 [![Library Status](https://github.com/openswoole/library/workflows/Unit%20Tests/badge.svg)](https://github.com/openswoole/library/actions)
 [![License](https://img.shields.io/badge/license-apache2-blue.svg)](LICENSE)
 
@@ -36,7 +34,7 @@ Just new pull request (and we need unit tests for new features)
 
 ### Branches
 
-+ **master**: For Swoole 4.7.1+, which supports PHP 7.2+.
++ **master**: For Open Swoole 4.7.1+, which supports PHP 7.2+.
 
 ## Dockerized Local Development
 
