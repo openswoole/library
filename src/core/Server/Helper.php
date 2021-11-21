@@ -77,6 +77,7 @@ class Helper
         'heartbeat_idle_time' => true,
         'max_request' => true,
         'max_request_grace' => true,
+        'max_request_execution_time' => true,
         'reload_async' => true,
         'open_cpu_affinity' => true,
         'cpu_affinity_ignore' => true,
