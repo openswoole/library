@@ -349,6 +349,8 @@ class Constant
 
     public const OPTION_MAX_REQUEST_GRACE = 'max_request_grace';
 
+    public const OPTION_MAX_REQUEST_EXECUTION_TIME = 'max_request_execution_time';
+
     public const OPTION_RELOAD_ASYNC = 'reload_async';
 
     public const OPTION_OPEN_CPU_AFFINITY = 'open_cpu_affinity';
