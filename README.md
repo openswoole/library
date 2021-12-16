@@ -1,6 +1,8 @@
 # Open Swoole Library
 
 [![Library Status](https://github.com/openswoole/library/workflows/Unit%20Tests/badge.svg)](https://github.com/openswoole/library/actions)
+[![GitHub stars](https://img.shields.io/github/stars/openswoole/swoole-src)](https://github.com/openswoole/swoole-src/stargazers)
+[![Twitter](https://img.shields.io/twitter/url/https/twitter.com/openswoole.svg?style=social&label=Follow%20%40OpenSwoole)](https://twitter.com/openswoole)
 [![License](https://img.shields.io/badge/license-apache2-blue.svg)](LICENSE)
 
 Table of Contents
@@ -34,7 +36,7 @@ Just new pull request (and we need unit tests for new features)
 
 ### Branches
 
-+ **master**: For Open Swoole 4.7.1+, which supports PHP 7.2+.
++ **master**: For Open Swoole 4.7.1+, which supports PHP 7.4+.
 
 ## Dockerized Local Development
 
@@ -89,12 +91,6 @@ docker exec -t $(docker ps -qf "name=app") bash -c "php ./examples/fastcgi/greet
 docker exec -t $(docker ps -qf "name=app") bash -c "php ./examples/fastcgi/greeter/client.php"
 docker exec -t $(docker ps -qf "name=app") bash -c "php ./examples/fastcgi/proxy/base.php"
 docker exec -t $(docker ps -qf "name=app") bash -c "php ./examples/fastcgi/var/client.php"
-```
-
-## Compatibility Patch (Swoole version <= v4.4.12)
-
-```php
-define('SWOOLE_USE_SHORTNAME', true); // or false (it depends on you)
 ```
 
 ## Coding Style Checks and Fixes
