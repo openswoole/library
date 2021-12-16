@@ -151,7 +151,7 @@ class Helper
 
     public static function checkOptions(array $input_options)
     {
-        $const_options = self::GLOBAL_OPTIONS + self::SERVER_OPTIONS + self::PORT_OPTIONS + self::HELPER_OPTIONS;
+        $const_options = self::GLOBAL_OPTIONS + self::SERVER_OPTIONS + self::PORT_OPTIONS;
 
         foreach ($input_options as $k => $v) {
             if (!array_key_exists(strtolower($k), $const_options)) {
