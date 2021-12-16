@@ -173,4 +173,32 @@ class Helper
     public static function onWorkerStop(Server $server, int $workerId)
     {
     }
+
+    public static function statsToJSON(array $stats)
+    {
+        return json_encode($stats, \JSON_PRETTY_PRINT);
+    }
+
+    public static function statsToOpenMetrics(array $stats)
+    {
+        return "# HELP openswoole_up Is OpenSwoole server up?\n"
+                . "# TYPE openswoole_up gauge\n"
+                . "openswoole_up ${stats['up']}\n"
+                // . "openswoole_version ${stats['version']}\n"
+                . "openswoole_start_time_seconds ${stats['start_time_seconds']}\n"
+                . "openswoole_workers_total ${stats['workers_total']}\n"
+                . "openswoole_workers_idle ${stats['workers_idle']}\n"
+                . "openswoole_task_workers_total ${stats['task_workers_total']}\n"
+                . "openswoole_task_workers_idle ${stats['task_workers_idle']}\n"
+                . "openswoole_user_workers_total ${stats['user_workers_total']}\n"
+                . "openswoole_dispatch_total ${stats['dispatch_total']}\n"
+                . "openswoole_connections_accepted ${stats['connections_accepted']}\n"
+                . "openswoole_connections_active ${stats['connections_active']}\n"
+                . "openswoole_connections_closed ${stats['connections_closed']}\n"
+                . "openswoole_reload_count ${stats['reload_count']}\n"
+                . "openswoole_reload_last_time ${stats['reload_last_time']}\n"
+                . "openswoole_worker_vm_object_num ${stats['worker_vm_object_num']}\n"
+                . "openswoole_worker_vm_resource_num ${stats['worker_vm_resource_num']}\n"
+                . "openswoole_worker_memory_usage ${stats['worker_memory_usage']}\n";
+    }
 }
