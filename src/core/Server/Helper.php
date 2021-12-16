@@ -12,12 +12,9 @@ declare(strict_types=1);
 namespace Swoole\Server;
 
 use Swoole\Server;
-use Swoole\Timer;
 
 class Helper
 {
-    public const STATS_TIMER_INTERVAL_TIME = 1000;
-
     public const GLOBAL_OPTIONS = [
         'debug_mode' => true,
         'trace_flags' => true,
@@ -152,10 +149,6 @@ class Helper
         'ssl_sni_certs' => true,
     ];
 
-    public const HELPER_OPTIONS = [
-        'stats_file' => true,
-    ];
-
     public static function checkOptions(array $input_options)
     {
         $const_options = self::GLOBAL_OPTIONS + self::SERVER_OPTIONS + self::PORT_OPTIONS + self::HELPER_OPTIONS;
@@ -163,7 +156,7 @@ class Helper
         foreach ($input_options as $k => $v) {
             if (!array_key_exists(strtolower($k), $const_options)) {
                 //TODO throw exception
-                trigger_error("unsupported option [{$k}]", E_USER_WARNING);
+                trigger_error("Unknown option [{$k}]", E_USER_WARNING);
                 debug_print_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS);
             }
         }
@@ -171,25 +164,10 @@ class Helper
 
     public static function onWorkerStart(Server $server, int $workerId)
     {
-        if (!empty($server->setting['stats_file']) and $workerId == 0) {
-            $server->stats_timer = Timer::tick(self::STATS_TIMER_INTERVAL_TIME, function () use ($server) {
-                $stats = $server->stats();
-                $lines = [];
-                foreach ($stats as $k => $v) {
-                    $lines[] = "{$k}: {$v}";
-                }
-                $out = implode("\n", $lines);
-                file_put_contents($server->setting['stats_file'], $out);
-            });
-        }
     }
 
     public static function onWorkerExit(Server $server, int $workerId)
     {
-        if ($server->stats_timer) {
-            Timer::clear($server->stats_timer);
-            $server->stats_timer = null;
-        }
     }
 
     public static function onWorkerStop(Server $server, int $workerId)

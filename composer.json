@@ -24,7 +24,7 @@
         "ext-curl": "*",
         "ext-sockets": "*",
         "phpunit/phpunit": "~8.0",
-        "swoole/ide-helper": "~4.6",
+        "openswoole/ide-helper": "~4.8",
         "friendsofphp/php-cs-fixer": "^3.0"
     },
     "suggest": {
@@ -63,10 +63,10 @@
         "cs-fix": "/usr/bin/env php -d swoole.enable_library=Off ./vendor/bin/php-cs-fixer fix",
         "test": "/usr/bin/env php -d swoole.enable_library=Off ./vendor/bin/phpunit",
         "post-install-cmd" : [
-            "rm -rf ./vendor/swoole/ide-helper/output/swoole_library"
+            "rm -rf ./vendor/openswoole/ide-helper/output/swoole_library"
         ],
         "post-update-cmd" : [
-            "rm -rf ./vendor/swoole/ide-helper/output/swoole_library"
+            "rm -rf ./vendor/openswoole/ide-helper/output/swoole_library"
         ]
     }
 }
