@@ -181,24 +181,24 @@ class Helper
 
     public static function statsToOpenMetrics(array $stats)
     {
-        $event_workers = "";
+        $event_workers = '';
         foreach ($stats['event_workers'] as $stat) {
-            $event_workers .= . "openswoole_event_workers_start_time{${stat['worker_id']}} ${stat['start_time']}\n";
-            $event_workers .= . "openswoole_event_workers_start_time_seconds{${stat['worker_id']}} ${stat['start_time_seconds']}\n";
-            $event_workers .= . "openswoole_event_workers_request_count{${stat['worker_id']}} ${stat['request_count']}\n";
-            $event_workers .= . "openswoole_event_workers_dispatch_count{${stat['worker_id']}} ${stat['dispatch_count']}\n";
+            $event_workers .= "openswoole_event_workers_start_time{worker_id={$stat['worker_id']}} ${stat['start_time']}\n";
+            $event_workers .= "openswoole_event_workers_start_time_seconds{worker_id={$stat['worker_id']}} ${stat['start_time_seconds']}\n";
+            $event_workers .= "openswoole_event_workers_request_count{worker_id={$stat['worker_id']}} ${stat['request_count']}\n";
+            $event_workers .= "openswoole_event_workers_dispatch_count{worker_id={$stat['worker_id']}} ${stat['dispatch_count']}\n";
         }
 
-        $task_workers = "";
+        $task_workers = '';
         foreach ($stats['task_workers'] as $stat) {
-            $task_workers .= . "openswoole_task_workers_start_time{${stat['worker_id']}} ${stat['start_time']}\n";
-            $task_workers .= . "openswoole_task_workers_start_time_seconds{${stat['worker_id']}} ${stat['start_time_seconds']}\n";
+            $task_workers .= "openswoole_task_workers_start_time{worker_id={$stat['worker_id']}} ${stat['start_time']}\n";
+            $task_workers .= "openswoole_task_workers_start_time_seconds{worker_id={$stat['worker_id']}} ${stat['start_time_seconds']}\n";
         }
 
-        $user_workers = "";
+        $user_workers = '';
         foreach ($stats['user_workers'] as $stat) {
-            $user_workers .= . "openswoole_user_workers_start_time{${stat['worker_id']}} ${stat['start_time']}\n";
-            $user_workers .= . "openswoole_user_workers_start_time_seconds{${stat['worker_id']}} ${stat['start_time_seconds']}\n";
+            $user_workers .= "openswoole_user_workers_start_time{worker_id={$stat['worker_id']}} ${stat['start_time']}\n";
+            $user_workers .= "openswoole_user_workers_start_time_seconds{worker_id={$stat['worker_id']}} ${stat['start_time_seconds']}\n";
         }
 
         return "# HELP openswoole_up Is OpenSwoole server up?\n"
