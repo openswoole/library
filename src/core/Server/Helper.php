@@ -183,21 +183,29 @@ class Helper
     {
         $event_workers = '';
         foreach ($stats['event_workers'] as $stat) {
+            $event_workers .= "# TYPE openswoole_event_workers_start_time counter\n";
             $event_workers .= "openswoole_event_workers_start_time{worker_id={$stat['worker_id']}} ${stat['start_time']}\n";
+            $event_workers .= "# TYPE openswoole_event_workers_start_time_seconds counter\n";
             $event_workers .= "openswoole_event_workers_start_time_seconds{worker_id={$stat['worker_id']}} ${stat['start_time_seconds']}\n";
-            $event_workers .= "openswoole_event_workers_request_count{worker_id={$stat['worker_id']}} ${stat['request_count']}\n";
+            $event_workers .= "# TYPE openswoole_event_workers_dispatch_count counter\n";
             $event_workers .= "openswoole_event_workers_dispatch_count{worker_id={$stat['worker_id']}} ${stat['dispatch_count']}\n";
+            $event_workers .= "# TYPE openswoole_event_workers_request_count counter\n";
+            $event_workers .= "openswoole_event_workers_request_count{worker_id={$stat['worker_id']}} ${stat['request_count']}\n";
         }
 
         $task_workers = '';
         foreach ($stats['task_workers'] as $stat) {
+            $task_workers .= "# TYPE openswoole_task_workers_start_time counter\n";
             $task_workers .= "openswoole_task_workers_start_time{worker_id={$stat['worker_id']}} ${stat['start_time']}\n";
+            $task_workers .= "# TYPE openswoole_task_workers_start_time_seconds counter\n";
             $task_workers .= "openswoole_task_workers_start_time_seconds{worker_id={$stat['worker_id']}} ${stat['start_time_seconds']}\n";
         }
 
         $user_workers = '';
         foreach ($stats['user_workers'] as $stat) {
+            $user_workers .= "# TYPE openswoole_user_workers_start_time counter\n";
             $user_workers .= "openswoole_user_workers_start_time{worker_id={$stat['worker_id']}} ${stat['start_time']}\n";
+            $user_workers .= "# TYPE openswoole_user_workers_start_time_seconds counter\n";
             $user_workers .= "openswoole_user_workers_start_time_seconds{worker_id={$stat['worker_id']}} ${stat['start_time_seconds']}\n";
         }
 
@@ -205,9 +213,9 @@ class Helper
                 . "# TYPE openswoole_up stateset\n"
                 . "openswoole_up ${stats['up']}\n"
                 . "# TYPE openswoole_version info\n"
-                . "openswoole_version ${stats['version']}\n"
+                . "openswoole_version{version={$stats['version']}} 1\n"
                 . "# TYPE openswoole_start_time_seconds counter\n"
-                . "openswoole_reactor_num ${stats['reactor_num']}\n"
+                . "openswoole_reactor_threads_num ${stats['reactor_threads_num']}\n"
                 . "# TYPE openswoole_reactor_num counter\n"
                 . "openswoole_requests_total ${stats['requests_total']}\n"
                 . "# TYPE openswoole_requests_total counter\n"
