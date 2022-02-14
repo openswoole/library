@@ -97,6 +97,11 @@ class Helper
         'output_buffer_size' => true,
         'buffer_output_size' => true,
         'message_queue_key' => true,
+        'http2_header_table_size' => true,
+        'http2_initial_window_size' => true,
+        'http2_max_concurrent_streams' => true,
+        'http2_max_frame_size' => true,
+        'http2_max_header_list_size' => true,
     ];
 
     public const PORT_OPTIONS = [
