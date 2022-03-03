@@ -92,7 +92,7 @@ class FunctionTest extends TestCase
     {
         run(function () {
             $cid = go(function () {
-                System::sleep(0.001);
+                System::sleep(1);
             });
             $this->assertTrue(is_int($cid) and $cid > 0);
         });
@@ -105,7 +105,7 @@ class FunctionTest extends TestCase
             $c = 4;
             $results = [];
             parallel($c, function () use (&$results) {
-                System::sleep(0.2);
+                System::sleep(2);
                 $results[] = System::gethostbyname('localhost');
             });
             $end = microtime(true);
@@ -122,7 +122,7 @@ class FunctionTest extends TestCase
             $start = microtime(true);
             $list = [1, 2, 3, 4];
             $results = map($list, function (int $i): int {
-                System::sleep(0.2);
+                System::sleep(2);
                 return $i * 2;
             });
             $end = microtime(true);
