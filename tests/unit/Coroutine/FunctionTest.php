@@ -111,8 +111,8 @@ class FunctionTest extends TestCase
             $end = microtime(true);
 
             $this->assertEquals(count($results), $c);
-            $this->assertGreaterThan(0.2, $end - $start);
-            $this->assertLessThan(0.22, $end - $start);
+            $this->assertGreaterThan(2, $end - $start);
+            $this->assertLessThan(2.2, $end - $start);
         });
     }
 
@@ -128,8 +128,8 @@ class FunctionTest extends TestCase
             $end = microtime(true);
 
             $this->assertSameSize($results, $list);
-            $this->assertGreaterThan(0.2, $end - $start);
-            $this->assertLessThan(0.22, $end - $start);
+            $this->assertGreaterThan(2, $end - $start);
+            $this->assertLessThan(2.2, $end - $start);
             $this->assertSame([2, 4, 6, 8], $results);
         });
     }
