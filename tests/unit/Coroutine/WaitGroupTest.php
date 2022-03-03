@@ -27,7 +27,7 @@ class WaitGroupTest extends TestCase
             $st = microtime(true);
             foreach (range(1, $N) as $i) {
                 \Swoole\Coroutine::create(function () use ($wg) {
-                    System::sleep(0.5);
+                    System::sleep(1);
                     $wg->done();
                 });
             }
@@ -36,8 +36,8 @@ class WaitGroupTest extends TestCase
             $this->assertEquals(0, $wg->count(), 'All four coroutines have finished execution.');
 
             $et = microtime(true);
-            $this->assertGreaterThan(0.5, $et - $st, 'The four coroutines take more than 0.5 second in total to execute.');
-            $this->assertLessThan(0.55, $et - $st, 'The four coroutines take less than 0.55 second in total to execute.');
+            $this->assertGreaterThan(1, $et - $st, 'The four coroutines take more than 1 second in total to execute.');
+            $this->assertLessThan(1.1, $et - $st, 'The four coroutines take less than 1.1 second in total to execute.');
         });
     }
 }
