@@ -231,6 +231,16 @@ class Constant
 
     public const OPTION_DNS_CACHE_CAPACITY = 'dns_cache_capacity';
 
+    public const OPTION_HTTP2_HEADER_TABLE_SIZE = 'http2_header_table_size';
+
+    public const OPTION_HTTP2_INITIAL_WINDOW_SIZE = 'http2_initial_window_size';
+
+    public const OPTION_HTTP2_MAX_CONCURRENT_STREAMS = 'http2_max_concurrent_streams';
+
+    public const OPTION_HTTP2_MAX_FRAME_SIZE = 'http2_max_frame_size';
+
+    public const OPTION_HTTP2_MAX_HEADER_LIST_SIZE = 'http2_max_header_list_size';
+
     public const OPTION_RECONNECT = 'reconnect';
 
     public const OPTION_DEFER = 'defer';
