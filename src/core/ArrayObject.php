@@ -63,12 +63,18 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
         return count($this->array);
     }
 
+    /**
+     * @return mixed
+     */
     #[\ReturnTypeWillChange]
     public function current()
     {
         return current($this->array);
     }
 
+    /**
+     * @return mixed
+     */
     #[\ReturnTypeWillChange]
     public function key()
     {
@@ -240,6 +246,7 @@ class ArrayObject implements ArrayAccess, Serializable, Countable, Iterator
     /**
      * @param mixed $key
      * @param mixed $offset
+     * @return bool
      */
     #[\ReturnTypeWillChange]
     public function offsetExists($offset)
