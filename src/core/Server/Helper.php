@@ -102,6 +102,7 @@ class Helper
         'http2_max_concurrent_streams' => true,
         'http2_max_frame_size' => true,
         'http2_max_header_list_size' => true,
+        'enable_server_token' => true,
     ];
 
     public const PORT_OPTIONS = [
