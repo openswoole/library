@@ -103,6 +103,8 @@ class Constant
 
     public const OPTION_MAX_CONCURRENCY = 'max_concurrency';
 
+    public const OPTION_ENABLE_SERVER_TOKEN = 'enable_server_token';
+
     public const OPTION_AIO_CORE_WORKER_NUM = 'aio_core_worker_num';
 
     public const OPTION_AIO_WORKER_NUM = 'aio_worker_num';
